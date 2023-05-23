@@ -1,0 +1,39 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Feedback{% endblock %}
+{% block content %}
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="feedback">
+        <h4 id="borderh">Feedback</h4>
+        <br/>
+
+        <table id="example" class="table table-hover table-striped table-light text-dark table-bordered text-center border border-1">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone No.</th>
+                    <th>Address</th>
+                    <th>Message</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for c in contacts %}
+                <tr>
+                    <td>{{c.name}}</td>
+                    <td>{{c.email}}</td>
+                    <td>{{c.phone}}</td>
+                    <td>{{c.address}}</td>
+                    <td>{{c.message}}</td>
+                    <td><a href="https://mail.google.com/mail/?view=cm&fs=1&to={{c.email}}" target="_blank" class="text-dark"><button class="btnfeed">Reply</button></a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+</div>        
+
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Checkout
+{% endblock %}
+
+{% block content %}
+        <div class="row p-5" id="ordercreate">
+            <div class="col-md-7 order">
+                <div style="background-color: rgb(219, 255, 194); padding-bottom: 10px; padding-top: 10px;">
+                    <h4 class="page-header pb-3" style="text-align:center; font-size:39px; color:rgb(54, 151, 16);">Checkout</h4>
+                    <form action="" method="post" class="forms">
+                        {% csrf_token %}
+                        {{ form.as_p }}<br/>
+                        
+                        <left class="ps-5"><input type="submit" id="submitbtn"  class="btn" value="Submit order" style="background-color: rgb(64, 151, 29);font-weight: 600;color: black;"></left>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div class="page-header" style="color:rgb(54, 151, 16); font-size:30px; font-weight: 600;padding-bottom: 20px;">
+                    Your Order
+                </div>
+                <ul class="list-group">
+                    {% for item in cart %}
+                        <li class="list-group-item">
+                        {{ item.quantity }}x {{ item.product.name }}
+                        <span>Rs. {{ item.total_price }}</span>
+                        </li>
+                    {% endfor %}
+
+                <li class="list-group-item" style="background-color: rgb(91, 177, 57);color:black;">Total Cost: Rs. {{ cart.get_total_price }}</li>
+                </ul>
+
+            </div>
+        </div>
+{% endblock %}

@@ -1,0 +1,57 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Profile{% endblock %}
+{% block content %}
+
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12" id="profile1">
+
+
+        <!-- <h4 id="borderh">Profile</h4>
+        <br/> -->
+
+        <div class="row bg-white" id="borprof">
+            <div class="col-md-4 pt-5 pb-4 text-center">
+                <img src='/media/{{edetail.Picture}}' width="40%" height="80%" class="img-thumbnail rounded-circle" id="borprof1" /><br/>
+                <h3 class="ps-2 pt-2">{{edetail.Employe_Name}}</h3><br/>
+            </div>
+            <div class="col-md-8 pt-4 pb-4 pe-5">
+                <table class="table">
+                    <tr>
+                      <th>Employe Name</th>
+                      <td>{{edetail.Employe_Name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Username</th>
+                        <td>{{edetail.Username}}</td>
+                      </tr>
+                    <tr>
+                      <th>Email</th>
+                      <td>{{edetail.Email}}</td>
+                    </tr>
+                    <tr>
+                        <th>Gender</th>
+                        <td>{{edetail.Gender}}</td>
+                    </tr>
+                    <tr>
+                        <th>Join Date</th>
+                        <td>{{edetail.Date_Of_Join}}</td>
+                    </tr>
+                    <tr>
+                      <th>Contact</th>
+                      <td>{{edetail.Contact_No}}</td>
+                    </tr>
+                    <tr>
+                        <th>Address</th>
+                        <td>{{edetail.Address}}</td>
+                    </tr>
+                </table>                  
+            </div>
+        </div>
+        
+
+    </div>
+</div>
+
+{% endblock %}

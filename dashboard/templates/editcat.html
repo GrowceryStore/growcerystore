@@ -1,0 +1,44 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Edit Category{% endblock %}
+{% block content %}
+
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="editcat">
+        <h4 id="borderh">Update Category</h4>
+        <br/>
+        <form action="/updatecat/{{categorys.id}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}    
+            <label class="pb-2">Category Image</label>
+            <input type="file" class="form-control" name="Pic" accept=".jpg,.png,.webp,.pdf,.jpeg" value="{{categorys.Pic}}"  />
+            <br/>
+            
+            <label class="pb-2">Category Name</label>
+            <input type="text" class="form-control" name="Category_Name" value="{{categorys.Category_Name}}" />
+
+            <input type="hidden" class="form-control" name="Register_Date" value="{{categorys.Register_Date}}"  />
+            <br/>
+
+            <label class="ps-2">Status</label>
+            <select class="form-control" name="Status" value="{{categorys.Status}}" >
+                <option>Active</option>
+                <option>Inactive</option>
+            </select>
+            <br/>
+
+            <div id="addcatbtn"class="ps-2">
+                <button type="submit" class="rounded-1" id="btn" onclick="sub()">Update</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function sub(){
+        alert("Categroy Updated Successfully");
+    }
+</script>
+
+{% endblock %}

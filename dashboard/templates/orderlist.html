@@ -1,0 +1,52 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Order List{% endblock %}
+{% block content %}
+
+
+<div class=" mb-4">
+    <div class="col-md-12 bg-white" id="orderlist">
+
+        <h4 id="borderh">Order List</h4>
+        <br/>
+        
+        <div class="row ps-2 pe-2">
+            <div class="col-md-12">
+                <table class="table table-hover table-striped table-light text-dark table-bordered text-center border border-1" id="example">
+                    <thead class="text-center">
+                        <tr>
+                            <th>Order Id</th>
+                            <th>Item</th>
+                            <th>Customer Name</th>
+                            <th>Email</th>
+                            <th>Address</th>
+                            <th>City</th>
+                            <th>Price</th>
+                            <th>Date</th>
+                            <th>Paid</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for or in order %}
+                         {% for o in orderitem %} 
+                            <tr>
+                                <td>{{o.order}}</td>
+                                <td>{{o.product}}</td>                              
+                                <td>{{or.first_name}} {{or.last_name}}</td>
+                                <td>{{or.email}}</td>
+                                <td>{{or.address}}</td>
+                                <td>{{or.city}}</td>
+                                <td>{{o.price}}</td>
+                                <td>{{or.created}}</td>
+                                <td>{{or.paid}}</td>                             
+                            </tr>
+                            {% endfor %}
+                        {% endfor %}    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,60 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Product Details{% endblock %}
+{% block content %}
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="viewpro">
+        <h4 id="borderh">Product Details</h4>
+        <br/>
+
+        <form>
+           
+
+            <label class="pb-2">Product Name</label>
+            {{products.Product_Name}}
+            <br/>
+
+            <label class="pb-2">Category</label>
+            {{products.Categoryid}}
+            <br/>
+
+            <label class="pb-2">Register Date</label>
+            {{products.Register_Date}}
+            <br/>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <label class="pb-2">MRP</label>
+                    {{products.MRP}}
+                    <br/>
+                </div>
+                <div class="col-md-6">
+                    <label class="pb-2">Selling Price</label>
+                    {{products.Selling_Price}}
+                    <br/>
+                </div>    
+            </div>
+
+            <div class="row pb-2">
+                <div class="col-md-6">
+                    <label>Opening Stock</label>
+                    {{products.Opening_Stock}}
+                    <br/>
+                </div>
+                <div class="col-md-6">
+                    <label>Product Status</label>
+                    {{products.Status}}
+                    <br/>
+                </div>
+            </div>
+
+            <label class="pb-2">Product Description</label>
+            <p>{{products.Description}}</p>
+            <br/>
+           
+        </form>
+    </div>
+</div>        
+
+{% endblock %}

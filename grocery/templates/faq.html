@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}FAQ{% endblock %}
+{% block content %}
+
+<div class="row pt-3">
+    <div class="col-md-12">
+        <div class="row" id="fabg">
+            <div class="col-md-12 pt-3 pb-3" id="faqbg" >
+                <h3 id="faqhead">Frequently Asked Question (FAQ's)</h3>
+            </div>
+            <img src="{% static 'images/pattern12.png' %}" id="faqpic" />
+        </div>
+    </div>
+</div>
+
+
+<div class="row pt-5">
+    <div class="col-md-10 offset-1">
+        <div class="row">
+            <div class="accordion" id="accordionExample">
+            {% for fa in faqs %}
+            
+                <div class="accordion-item">
+                    <h2 class="accordion-header" id="heading{{ fa.id }}">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{ fa.id }}" aria-expanded="true" aria-controls="collapse{{ fa.id }}">
+                            {{ fa.Question }}
+                        </button>
+                    </h2>
+                    <div id="collapse{{ fa.id }}" class="accordion-collapse collapse " aria-labelledby="heading{{ fa.id }}" data-bs-parent= "#accordionExample">
+                        <div class="accordion-body">
+                            {{ fa.Answer }}
+                        </div>
+                    </div>
+                </div>
+            
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

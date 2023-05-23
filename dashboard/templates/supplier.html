@@ -1,0 +1,61 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Supplier{% endblock %}
+{% block content %}
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="supplier">
+        <div class="row">
+            <div class="col-md-6" id="borderh1">
+                <h4>Supplier List</h4>
+                <h6>Manage Your Supplier</h6>
+            </div>
+            <div class="col-md-6" id="borderh1">
+                <form action="/addsupplier/" id="addbtn2" >
+                    <button class="supbtn"><i class="fa-solid fa-circle-plus"></i> Add Supplier</button>
+                </form>
+            </div>
+        </div>
+        <br/>
+      
+        <div class="row ps-2 pe-2">
+            <div class="col-md-12">
+                <table class="table table-hover table-striped table-light text-dark table-bordered text-center border border-1" id="example">
+                    <thead class="text-center">
+                        <tr>
+                            <th>S No.</th>
+                            <th>Supplier Name</th>
+                            <th>Item</th>
+                            <th>Email</th>
+                            <th>City</th>
+                            <th>Contact No.</th>
+                            <th>Register Date</th>
+                            <th>Action</th>
+                        </tr>                       
+                    </thead>
+                    <tbody>
+                        {% for s in suppliers %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><img src="/media/{{ s.Supplier_Pic }}"  height="40px" width="30%"  /> {{s.Supplier_Name}}</td>
+                            <td>{{s.Categoryid}}</td>
+                            <td>{{s.Email}}</td>
+                            <td>{{s.City}}</td>
+                            <td>{{s.Phone_No}}</td>
+                            <td>{{s.Register_Date}}</td>
+                            <td>
+                                <a href="/editsupplier/{{s.id}}" class="text-secondary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="/deletesupplier/{{s.id}}" class="ps-2 text-danger fa-lg"><i class="fa-regular fa-trash-can"></i></a>
+                            </td>
+                        </tr>
+                        
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,87 @@
+{% load static %}
+<html>
+    <head>
+        <title>Login Page</title>
+        <link href="{% static 'logstyle.css' %}" type="text/css" rel="stylesheet" />
+        <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+        <link href="{% static 'css/bootstrap-grid.min.css' %}" rel="stylesheet" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+        <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700,800&display=swap" rel="stylesheet">
+
+    </head>
+
+    <body id="bglog">
+        <div class="cont">
+
+          <div class="form sign-in text-center">
+            <h2 class="fw-bold">LOGIN</h2>
+            <label class="pt-3">
+              <span>Email Address</span>
+              <input type="email" name="email" required />
+            </label>
+            <br/>
+            <label  class="pt-1">
+              <span>Password</span>
+              <input type="password" name="password" required />
+            </label>
+            <button id="btn1" type="submit">Sign In</button>
+          </div>
+        
+          <div class="sub-cont">
+            <div class="img">
+              <div class="img-text m-up">
+                <img src="{% static 'images/lo7.png' %}" class="pt-3" />
+                <h1 class="pt-5">New here?</h1>
+                <p>sign up and discover</p>
+              </div>
+              <div class="img-text m-in">
+                <img src="{% static 'images/lo7.png' %}" class="pt-3"/>
+                <h1 class="pt-5">One of us?</h1>
+                <p>Just Login Now</p>
+              </div>
+              <div class="img-btn">
+                <span class="m-up">Sign Up</span>
+                <span class="m-in">Login</span>
+              </div>
+            </div>
+            <div class="form sign-up text-center">
+              <h2 class="fw-bold">SIGN UP</h2>
+              <label>
+                <span>Name</span>
+                <input type="text" pattern="[A-Za-z]*" required />
+              </label>
+              <br/>
+              <label>
+                <span>Email</span>
+                <input type="email" required />
+              </label>
+              <br/>
+              <label>
+                <span>Password</span>
+                <input type="password" required />
+              </label>
+              <br/>
+              <label>
+                <span>Confirm Password</span>
+                <input type="password" required />
+              </label>
+              <br/>
+              <button type="submit" id="btn1">Sign Up Now</button>
+            </div>
+          </div>
+        </div>
+        <script type="text/javascript" src="script.js"></script>
+
+
+    </body>
+
+    <script>
+        document.querySelector('.img-btn').addEventListener('click', function()
+        {
+            document.querySelector('.cont').classList.toggle('s-signup')
+        }
+        );
+
+    </script>
+</html>

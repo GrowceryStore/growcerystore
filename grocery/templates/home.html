@@ -1,0 +1,264 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Growcery Store{% endblock %}
+{% block content %}
+
+            <div class="row">
+                <div class="col-md-12" id="bimage1">
+                    <div class="row ps-5" id="para">
+                        <div class="col-md-6 offset-3">
+                            <h1 class="text-uppercase fw-bold" id="head1">BAG FULL OF</h1>
+                            <h3 class="text-uppercase fw-bold" id="head2">Grocery products</h3>
+                            <h5 class="text-uppercase fw-bold" id="head3">fresh fruits & vegetables</h5>
+                            <h5 class="text-uppercase fw-bold" id="head4">frozen & chilled food</h5>
+                            <div id="btn1">
+                                <a href="/shop/"> 
+                                    <button id="btn">SHOP NOW !</button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>   
+                </div>
+            </div>        
+            <!--row ends here-->
+
+
+<!--************************************** ABOUT PAGE ****************************************************-->
+
+
+            <div class="row"  data-aos="zoom-in" id="abhead">
+                <div class="col-md-12 text-center">
+                    <h1 class="text-center" id="h1">ABOUT US</h1>
+                    <img src="{% static 'images/under.webp' %}" />
+                </div>
+            </div>
+            <!--row ends here-->
+            
+
+            <div class="row" id="abopic">
+                <div class="col-md-6">
+                    <div class="row" id="abopic1">
+                        <div class="col-md-12">
+                            <p class="text-success ps-5">Who Are We?</p>
+                            <h1 class="ps-5 display-6 text-dark fw-bold">Always the Freshest Ingredients at the Lowest Price.</h1>
+                            <div class="row ps-5 pt-4" id="affordable">
+                                <div class="col-md-1 pt-1">
+                                    <span class="fa-3x" id="always"><i class="fa-regular fa-circle-check"></i></span> 
+                                </div>
+                                <div class="col-md-8 ps-4">
+                                    <h4>Affordable Price</h4>
+                                    <p class="text-secondary">Here we are providing you the affordable prices for your daily need products. As well as we are giving you the special deals and offers on the purchase.  </p>
+                                </div>
+                            </div>
+                            <div class="row ps-5 pt-3">
+                                <div class="col-md-1 pt-1">
+                                    <span class="fa-3x" id="always"><i class="fa-regular fa-circle-check"></i></span> 
+                                </div>
+                                <div class="col-md-8 ps-4">
+                                    <h4>Quality at value</h4>
+                                    <p class="text-secondary">Get fresh eggs, meat, fruits and more online at your convenience. ‘Growseries Store’ is grocery store that gets items crosswise over classifications like grocery, natural products and vegetables, meats and fish.</p>
+                                </div>
+                            </div>
+                            <div class="row ps-5  pt-3">
+                                <div class="col-md-1 pt-1">
+                                    <span class="fa-3x" id="always"><i class="fa-regular fa-circle-check"></i></span> 
+                                </div>
+                                <div class="col-md-8 ps-4">
+                                    <h4>24/7 Premium Support</h4>
+                                    <p class="text-secondary">We care for our customers. We are here for you 24/7 to help you. If you want any improvement towards us or any kind of help then just contact us. </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+                <div class="col-md-6">
+                    <img src="{% static 'images/paper-bag1.jpg' %}" height="650px"  width="100%"  />
+                </div>
+            </div>
+            <!--row ends here-->
+
+            <div class="row pt-5">
+                <div class="col-md-12 pt-5" id="workbg">
+                    <p class="text-success text-center pt-2">How it Work?</p>
+                    <h3 class="text-dark text-center display-6 fw-bold pt-1" id="fon">Healthy, Affordable, Delicious</h3>
+                    <div class="row pt-5">
+                        <div class="col-md-3" data-aos="fade-right" id="white">
+                            <div class="text-center pt-2">
+                                <img src="{% static 'images/food-cart (1).png' %}"   />
+                            </div>
+                            <h3 class="text-center pt-3" id="font">Search the Item</h3>
+                            <p class="text-center pt-2 ps-3 pe-3" id="font1">Search items from our store that you want to buy.</p>
+                        </div>
+                        <div class="col-md-3" data-aos="fade-up"  id="green">
+                            <div class="text-center pt-2">
+                                <img src="{% static 'images/vegetables.png' %}"  />
+                            </div>
+                            <h3 class="text-center pt-3" id="font">Find Out the Best Price</h3>
+                            <p class="text-center pt-2 ps-3 pe-3" id="font1">Check the Deals and Special offers for low price.</p>
+                        </div>
+                        <div class="col-md-3"data-aos="fade-left" id="white1">
+                            <div class="text-center pt-2">
+                                <img src="{% static 'images/time-is-money.png' %}"  />
+                            </div>
+                            <h3 class="text-center pt-3" id="font">Save Time and Money</h3>
+                            <p class="text-center pt-2 ps-3 pe-3" id="font1">Save your Time and Money by shopping from us.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <!--row ends here-->
+
+            <div class="row"  data-aos="fade-up" id="apicture">
+                <div class="col-md-3">
+                    <div class="ih-item square colored effect13 bottom_to_top"><a href="/fruveg/">
+                        <div class="img">
+                            <img src="{% static 'images/senior.jpg' %}" class="rounded-1" width="100%" alt="img">
+                        </div>
+                        <div class="info">
+                          <h3>Fruits & Veggies</h3>
+                        </div></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ih-item square colored effect13 bottom_to_top"><a href="/grains/">
+                        <div class="img"><img src="{% static 'images/grains.jpg' %}" class="rounded-1" width="100%" alt="img"></div>
+                        <div class="info">
+                          <h3>Nutri-Grains & Flours</h3>
+                        </div></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ih-item square colored effect13 bottom_to_top"><a href="/dairy/">
+                        <div class="img"><img src="{% static 'images/dairy.jpg' %}" class="rounded-1" width="100%" alt="img"></div>
+                        <div class="info">
+                          <h3>Dairy Products</h3>
+                        </div></a>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="ih-item square colored effect13 bottom_to_top"><a href="/meategg/">
+                        <div class="img"><img src="{% static 'images/meat.jpg' %}" class="rounded-1" width="100%" alt="img"></div>
+                        <div class="info">
+                          <h3>Eggs & Meat</h3>
+                        </div></a>
+                    </div>
+                </div>
+            </div>
+
+<!--************************************** CATEGORY PRODUCTS PAGE ****************************************************-->
+            
+            <div class="row" id="cthead">
+                <div class="col-md-12 text-center" data-aos="zoom-in">
+                    <h1 class="text-center" id="he1">CATEGORY PRODUCTS</h1>
+                    <img src="{% static 'images/under.webp' %}"  />
+                </div>
+            </div>
+            <!--row ends here-->
+
+
+            <div class="row">
+                <div class="col-md-10 offset-1">
+                    <div class="row" id="bg">
+                        {% for c in categorys %}
+                        <div class="col-md-2" id="bg1">
+                            <a href="/product/{{ c.id }}" class="text-decoration-none text-dark" >
+                                <div class="text-center catpoint" id="cathover">
+                                    <img src="/media/{{ c.Pic }}"  height="60" width="50%" class="mb-1"  />
+                                    <h2 class="fs-4">{{ c.Category_Name }}</h2>
+                                </div>
+                            </a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+            <!--row ends here-->
+            
+
+            <div class="row" id="propad">
+                <div class="col-md-12" id="propadd">
+                    <div class="row">
+                        {% for p in products %}
+                        <div class="col-md-3">
+                            <div class="border border-1 mb-5 text-center" id="borderpro">
+                                <a href="/productdetails/{{ p.id }}" class="text-decoration-none text-dark">
+                                    <img src="/media/{{ p.Photo }}"  height="260" width="100%"  />
+                                    <h2 id="prohead">{{ p.Product_Name }}</h2>
+                                    <h4 class="fs-5" id="clrpro"> (&#8377;{{p.Selling_Price}}) <span id="pro"> &#8377;{{ p.MRP }} </span> </h4>
+                                </a>
+                                {% if user.is_authenticated %}
+                                <input type="hidden" value="{{ user.id }}" class="Uid" /> 
+                                <input type="hidden" value="{{ p.id }}" class="Pid" /> 
+                                <button class="btn btnfav" id="favbtn2"><i class="fa-solid fa-heart-circle-check"></i></button>    
+                                {% else %}
+                                <a href="/signup/?next={{request.path}}"><button id="favbtn2"><i class="fa-solid fa-heart-circle-check"></i></button></a>
+                                {% endif %}
+                                <form action="{% url 'cart:cart_add' p.id %}" method="post">
+                                    {% csrf_token %}
+                                    {{ cart_product_form }}
+                                    <input type="submit" id="probtn" value="add to cart" class="btn btn-primary">
+                                </form>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div> 
+            </div>
+            
+
+
+
+<!--************************************** COUNTER ****************************************************-->
+
+            <div class="row">
+                <div class="col-md-12" id="count">
+                    <div class="row">
+                        <div class="col-md-12 " data-aos="zoom-in-up">
+                            <h4 class="text-center display-6 fw-bold" id="couhead">A Fresh, Natural Flavor that Comes <br/> from the Garden</h4>
+                            <p class="text-center text-white fs-5">We feed you with passion. We help you grow. Our service<br/> is trusted everywhere. Our motive is to deliver<br/> happiness to you instantly.</p>
+                        </div>                        
+                        <div class="row ps-5">
+                            <div class="col-md-10 offset-1 rounded-2" id="count1">
+                               <div class="row" id="count2">
+                                    <div class="col-md-3 text-center" id="border">
+                                        <h4 class="fw-bold display-3" id="bothead1"><span class="fw-bold display-3 counter">14</span>K+</h4>
+                                        <h4 id="bothead">Happy Customers</h4>
+                                    </div>
+                                    <div class="col-md-3 text-center" id="border">
+                                        <h4 class="fw-bold display-3" id="bothead1"><span class="fw-bold display-3 counter">27</span>K+</h4>
+                                        <h4 id="bothead">Product Sold</h4>
+                                    </div>
+                                    <div class="col-md-3 text-center" id="border">
+                                        <h4 class="fw-bold display-3" id="bothead1"><span class="fw-bold display-3 counter">4</span>.<span class="fw-bold display-3 counter">7</span>+</h4>
+                                        <h4 id="bothead">Customer Rating</h4>
+                                    </div>
+                                    <div class="col-md-3 text-center">
+                                        <h4 class="fw-bold display-3" id="bothead1"><span class="fw-bold display-3 counter">25</span>+</h4>
+                                        <h4 id="bothead">Years Experience</h4>
+                                    </div>
+                               </div>
+                            </div>
+                            <!--offset ends here-->
+                        </div>
+                    </div> 
+                </div>
+            </div>
+
+<!--************************************** SHOP PAGE ****************************************************-->
+
+
+<!--**************************************  NEWSLETTER  ****************************************************-->
+
+            <div class="row" id="subscribe">
+                <div class="col-md-12" id="subscribe1">
+                    <img src="{% static 'images/email-marketing.png' %}" height="60px" width="60px" id="newpic" />
+                    <h3 id="news">Subscribe to Our Newsletter</h3>
+                    <form id="email" class="contact-form" action="/subscribe/" method="post">
+                        {% csrf_token %}
+                        <input type="email" name="email"  placeholder="  Your Email Address" required id="emailadd" />
+                        <button type="submit" name="subscribe" class="btn-success" id="emailbtn">Submit <span class="text-light"><i class="fa-solid fa-paper-plane"></i></span></button>
+                    </form>
+                </div>
+            </div>
+
+{% endblock %}

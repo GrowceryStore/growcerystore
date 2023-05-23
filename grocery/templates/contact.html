@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Contact{% endblock %}
+{% block content %}
+
+<div class="row pt-4">
+    <div class="col-md-12 bg-light">
+        <div class="row pt-4 pb-4">
+            <div class="col-md-10 offset-1 bg-white rounded-3">
+                <div class="row ps-3 pt-3 pb-3">
+                    <div class="col-md-5 rounded-3" id="contbg">
+                        <h3 id="contact">Contact Information</h3>
+                        <p id="contact1">Fill up the form and Our Team will get back <br/> to you within 24 hours. </p>
+                        <h5 id="contact2"><span><i class="fa fa-phone"></i></span>    +535 421 895 6523</h5>
+                        <h5 id="contact2"><span><i class="fa fa-envelope"></i>  </span>   Growcerystore@gmail.com</h5>
+                        <h5 id="contact2"><span><i class="fa fa-location-dot"></i>  </span>   Growcery Store, Bathinda</h5>
+                    </div>
+                    
+                    <div class="col-md-7">
+                        <form action="/insertcontact/" method="post">
+                            {% csrf_token %}
+                            <div class="row pt-5 ps-3">
+                                <div class="col-md-6 pe-4" id="controw">                               
+                                    <label class="fs-5">Name</label>
+                                    <input type="text" class="form-control" name="name" pattern="[A-Za-z]*" required id="bord"/>
+    
+                                    <label class="pt-5 fs-5">Phone</label>
+                                    <input type="tel" class="form-control" maxlength="10" name="phone" pattern="[6|7|8|9][0-9]{9}" required id="bord"/>                                 
+                                </div>
+                                <div class="col-md-6 ps-4 pe-4"  id="controw">
+                                    <label class=" fs-5">Email</label>
+                                    <input type="email" class="form-control" name="email" id="bord" required />
+    
+                                    <label class="pt-5 fs-5">Address</label>
+                                    <input type="text" class="form-control" name="address" required id="bord" />
+                                </div>
+                            </div>
+                            <div class="row ps-3 pe-3">
+                                <div class="col-md-12">
+                                    <label class="pt-5 fs-5">Message</label>
+                                    <textarea class="form-control" name="message" id="bord"></textarea>
+                                </div>
+                            </div>
+                            <div class="row ps-3 pt-5 text-center">
+                                <div class="col-md-12" id="padcont">
+                                    <button type="submit" id="contbtn">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="row">
+            <div class="col-md-12 text-center pb-5">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d110335.60484552251!2d74.88864593572828!3d30.208899890664217!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39173297173abbcd%3A0xa00033c0a58a5ac8!2sBathinda%2C%20Punjab!5e0!3m2!1sen!2sin!4v1676996972082!5m2!1sen!2sin" width="1000" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div> -->
+    </div>
+</div>
+
+{% endblock %}

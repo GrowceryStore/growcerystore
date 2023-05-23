@@ -1,0 +1,45 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Add Category{% endblock %}
+{% block content %}
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="addcat">
+        <h4 id="borderh">Add Category Details</h4>
+        <br/>
+        <form action="/insertcategory/" method="post" enctype="multipart/form-data">
+            {% csrf_token %}    
+            <label class="pb-2">Category Image</label>
+            <input type="file" class="form-control" name="Pic" accept=".jpg,.png,.webp,.pdf,.jpeg" required />
+            <br/>
+            
+            <label class="pb-2">Category Name</label>
+            <input type="text" class="form-control" name="Category_Name" required />
+            <br/>
+
+            <label class="pb-2">Created Date</label>
+            <input type="date" class="form-control" name="Register_Date" required  />
+            <br/>
+
+            <label class="ps-2">Status</label>
+            <select class="form-control" name="Status" required>
+                <option>Active</option>
+                <option>Inactive</option>
+            </select>
+            <br/>
+
+            <div id="addcatbtn"class="ps-2">
+                <button type="submit" class="rounded-1" id="btn" onclick="sub()">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function sub(){
+        alert("Category added Successfully");
+    }
+</script>
+
+{% endblock %}

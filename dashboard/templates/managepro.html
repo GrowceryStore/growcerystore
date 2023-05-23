@@ -1,0 +1,50 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Manage Product{% endblock %}
+{% block content %}
+
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="manpro">
+        <h4 id="borderh">Manage Product</h4>
+        <br/>
+        <div class="row ps-2 pe-2">
+            <div class="col-md-12">
+                <table id="example" class="table table-hover table-striped table-light text-dark table-bordered text-center border border-1">
+                    <thead>
+                        <tr>
+                            <th>S No.</th>
+                            <th>Photo</th>
+                            <th>Product Name</th>
+                            <th>Category</th>
+                            <th>Creation Date</th>
+                            <th>Stock</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>                        
+                    </thead>
+                    <tbody>
+                        {% for p in products %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><img src="/media/{{ p.Photo }}"  height="40px" width="40%"  /></td>
+                            <td>{{p.Product_Name}}</td>
+                            <td>{{p.Categoryid}}</td>
+                            <td>{{p.Register_Date}}</td>
+                            <td>{{p.Opening_Stock}} Kg</td>
+                            <td>{{p.Status}}</td>
+                            <td>
+                                <a href="/viewpro/{{p.id}}" class="text-dark"><i class="fa-solid fa-eye"></i></a>
+                                <a href="/editpro/{{p.id}}" class="ps-2 text-secondary"><i class="fa-solid fa-pen-to-square"></i></a>
+                                <a href="/deletepro/{{p.id}}" class="ps-2 text-danger fa-lg"><i class="fa-regular fa-trash-can"></i></a>
+                            </td>
+                        </tr>
+                        
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

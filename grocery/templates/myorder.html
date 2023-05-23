@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block title %}My Orders{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12 text-center pt-5">
+       <h3 id="proh2"> Orders </h3>
+       <img src="{% static 'images/under.webp' %}" />
+    </div>
+
+    <div class="row pt-5 ps-5 pe-5">
+        <div class="col-md-12 ps-5 pe-5">
+            <table class="table ps-5 pe-5">
+                <thead>
+                    <tr>
+                        <th>Sr No.</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
+                        <th>Amount</th>
+                        <th>Time</th>
+                        <th>Payment</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for c in C %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ c.product }}</td>
+                        <td>&#8377;{{ c.price }}</td>
+                        <td>{{ c.quantity }}</td>
+                        <td>&#8377;{% multiply c.quantity c.price %}</td>
+                        <td>{{ c.order.updated }}</td>
+                        <td>{% if c.order.paid == True %}
+                            paid
+                            {% else %}
+                            NOT paid
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

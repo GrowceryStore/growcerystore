@@ -1,0 +1,114 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Details{% endblock %}
+{% block content %}
+
+
+<div class="row pt-5"> 
+    <div class="col-md-12">
+        <div class="row">
+            <div class="col-md-1 ps-3">
+                <img class="productbor1" src="/media/{{ p.Photo }}" height="90px" width="90px"> 
+            </div>
+            <div class="col-md-5 pe-3">            
+                <img class="productbor" src="/media/{{ p.Photo }}" height="500" width="100%">              
+            </div>
+            <div class="col-md-6 pe-4">
+                <div class="bottompro">
+                    <h4>{{ p.Product_Name }}</h4>
+                    <h4 class="fa-lg pt-4 text-dark">M.R.P: <span class="fa-xl">&#8377;{{ p.Selling_Price }}</span> (Incl. of all taxes)</h4>
+                </div>
+                <div class="bottompro pt-4">
+                    <h4>Description</h4>
+                    <p>{{ p.Description|safe }}</p>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-1">
+                        {% if user.is_authenticated %}
+                        <input type="hidden" value="{{ user.id }}" class="uid" /> 
+                        <input type="hidden" value="{{ p.id }}" class="pid" /> 
+                        <button class="btn btnlike fs-3 pt-3"><i class="fa fa-thumbs-up"></i></button>    
+                        {% else %}
+                        <a href="/signup/?next={{request.path}}"><button><i class="fa fa-thumbs-up"></i></button></a>
+                        {% endif %}
+                    </div>
+                    <div class="col-md-2"> 
+                        <h5 class="like fs-4 pt-3">{{ pro }} likes</h5>
+                    </div>
+                    <div class="col-md-9"></div>
+                </div>
+                <form action="{% url 'cart:cart_add' p.id %}" method="post">
+                    {% csrf_token %}
+                    {{ cart_product_form }}
+                    <input type="submit" class="btn" id="btncart" value="add to cart" class="btn btn-primary">
+                </form>                            
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-6">
+
+            </div>
+            <div class="col-md-6 pt-1">
+                {% if user.is_authenticated %}
+                <form action="/insertreview/" method="post" >
+                    {% csrf_token %}
+                    <label class="mb-1">Post Your Review</label><br/>
+                    <input type="hidden" name="next" value="{{ request.path }}"  />
+                    <input type="hidden" name="Userid" value="{{ user.id }}"  />
+                    <input type="hidden" name="Productid" value="{{ p.id }}"  />
+                    <textarea class="" id="textpadd" name="feedback" placeholder="Post Your Review"></textarea><br/>
+                    <!-- <input id="ratinginput" name="rating" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="2"> -->
+                    <div class="row">
+                        <div class="col-md-9" id="starow">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <input class="star star-5" id="star-5" type="radio" value="5" name="rating"/>
+                                    <label class="star star-5" for="star-5"></label>
+                                    <input class="star star-4" id="star-4" type="radio" value="4" name="rating"/>
+                                    <label class="star star-4" for="star-4"></label>
+                                    <input class="star star-3" id="star-3" type="radio" value="3" name="rating"/>
+                                    <label class="star star-3" for="star-3"></label>
+                                    <input class="star star-2" id="star-2" type="radio" value="2" name="rating"/>
+                                    <label class="star star-2" for="star-2"></label>
+                                    <input class="star star-1" id="star-1" type="radio" value="1" name="rating"/>
+                                    <label class="star star-1" for="star-1"></label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3 pe-5" id="paddre">
+                            <button type="submit" class="btn text-light fs-6"  id="btncart">Post</button>
+                        </div>
+                    </div>
+                </form>
+                {% else %}
+                <a href="/signup/?next={{ request.path }}" class="btn"> Give Review</a>
+                {% endif %}
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-10 offset-1">
+                <div class="row">
+                    {% for r in reviews %}
+                        <div class="col-md-3">
+                            <h3>{{r.Userid}}</h3>
+                            <p>{{r.feedback}}</p>
+                            <h6>
+                                <span class="fa fa-star {% if r.rating > '0' %} text-warning {% endif %}"></span>
+                                <span class="fa fa-star {% if r.rating > '1' %} text-warning {% endif %}"></span>
+                                <span class="fa fa-star {% if r.rating > '2' %} text-warning {% endif %}"></span>
+                                <span class="fa fa-star {% if r.rating > '3' %} text-warning {% endif %}"></span>
+                                <span class="fa fa-star {% if r.rating > '4' %} text-warning {% endif %}"></span>
+                            </h6>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+{% endblock %}

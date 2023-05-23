@@ -1,0 +1,59 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Edit Supplier{% endblock %}
+{% block content %}
+
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="editsup">
+        <h4 id="borderh">Update Supplier</h4>
+        <br/>
+        <form action="/updatesupplier/{{suppliers.id}}" method="post" enctype="multipart/form-data">
+            {% csrf_token %}    
+            <label class="pb-2">Supplier Image</label>
+            <input type="file" class="form-control" name="Supplier_Pic" accept=".jpg,.png,.webp,.pdf,.jpeg" value="{{suppliers.Supplier_Pic}}"  />
+            <br/>
+            
+            <label class="pb-2">Supplier Name</label>
+            <input type="text" class="form-control" name="Supplier_Name" value="{{suppliers.Supplier_Name}}" />
+
+            <input type="hidden" class="form-control" name="Register_Date" value="{{suppliers.Register_Date}}"  />
+            <br/>
+
+             
+            <label class="pb-2">Item</label>
+            <select class="form-control" name="Categoryid" >
+                <option value="">-Select-</option>
+                {% for c in categorys %}
+                <option value="{{ c.id }}">{{ c.Category_Name }}</option>
+                {% endfor %}
+            </select>
+            <br/>
+
+            <label class="ps-2">Email</label>
+            <input type="email" class="form-control" name="Email" value="{{suppliers.Email}}" />
+            <br/>
+
+            <label class="ps-2">Phone</label>
+            <input type="tel" class="form-control" name="Phone_No" value="{{suppliers.Phone_No}}" />
+            <br/>
+
+            <label class="ps-2">City</label>
+            <input type="text" class="form-control" name="City" value="{{suppliers.City}}" />
+            <br/>
+
+            <div id="addcatbtn"class="ps-2">
+                <button type="submit" class="rounded-1" id="btn" onclick="sub()">Update</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function sub(){
+        alert("Supplier Updated Successfully");
+    }
+</script>
+
+{% endblock %}

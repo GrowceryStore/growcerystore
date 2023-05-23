@@ -1,0 +1,73 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% load custom_tags %}
+{% block title %}Stock List{% endblock %}
+{% block content %}
+
+
+<div class=" mb-4">
+    <div class="col-md-12 bg-white" id="stock">
+
+        <h4 id="borderh">Stock List</h4>
+        <br/>
+        
+        <div class="row ps-2 pe-2">
+            <div class="col-md-12">
+                <table class="table table-hover table-striped table-light text-dark table-bordered text-center border border-1" id="example">
+                    <thead class="text-center">
+                        <tr>
+                            <th>S No.</th>
+                            <th>Photo</th>
+                            <th>Product Name</th>
+                            <th>Category Name</th>
+                            <th>Creation Date</th>
+                            <th>Opening Stock</th>
+                            <!-- <th>Remaining</th> -->
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for p in prods %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td><img src="/media/{{ p.Photo }}"  height="40px" width="40%"  /></td>
+                            <td>{{p.Product_Name}}</td>
+                            <td>{{p.Categoryid}}</td>
+                            <td>{{p.Register_Date}}</td>
+                            <td>{{p.Opening_Stock}}</td>
+                            <!-- <td class="stock">
+                                <label class="open">{{p.Opening_Stock}}</label>
+                                {% if p.order_items.exists %}
+                                {% for v in  p.order_items.all %}
+                                    
+                                   <label class="remain">{{ v.quantity }} </label>
+                                  
+                                {% endfor %}
+
+                                {% else  %}
+                                {{ p.Opening_Stock }}
+                                {% endif %}
+                            </td> -->
+                            <td>{{p.Status}}</td>    
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $(document).ready(function(){
+        var x=$(".stock").find(".remain").text();
+        var o=$(".stock").find(".open").text();
+        ar=x.split(" ");s=0;
+        for(i=0;i<ar.length-1;i++)
+        {
+            s+=parseInt(ar[i]);
+        }
+        var remaining=parseInt(o)-s;
+        $(".stock").text(remaining)
+    });
+</script>
+{% endblock %}

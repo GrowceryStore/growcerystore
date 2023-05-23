@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div class="col-6 mx-auto" style="margin-top:10%;">
+    <!--<form action="{% url 'orders:payment' %}" method='POST'>
+        {% csrf_token %}-->
+        
+        <div>
+        <button type="submit" id="btnpay" class="btn" style="background-color: rgb(64, 151, 29);font-weight: 600;color: black;">Pay Now</button>
+        </div>
+     <!-- </form>-->
+</div>
+
+<script src="https://checkout.razorpay.com/v1/checkout.js"></script>
+<script>
+    
+var options = {
+    key: "{{razorpay_key}}",
+    amount: "{{order.amount}}", 
+    currency: "INR",
+    name: "{{order.name}}",
+    description: "Test Transaction",
+    image: "{% static 'images/lo7.png' %}",
+    order_id: "{{order.provider_order_id}}",
+    callback_url: "{{callback_url}}",
+    redirect: true,
+    prefill: {
+        "name": "{{ order.name }}",
+        "email": "{{ user.email }}",
+        "contact": "9999999999"
+    },
+    notes: {
+        "address": "Mattress"
+    },
+    theme: {
+        "color":  "rgb(64, 151, 29)"
+    }
+};
+var rzp1 = new Razorpay(options);
+document.getElementById("btnpay").onclick=function(e)
+{
+rzp1.open();
+e.preventDefault();
+}
+</script>
+
+
+
+{% endblock %}
+
+
+
+
+

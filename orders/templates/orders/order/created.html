@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+    Your Shopping Cart| Thank you
+{% endblock %}
+
+{% block content %}
+	
+    <div class="container">
+        <div class="row" style="margin-top: 6%">
+            <div class="col-md-12 text-center">
+                <h3 class="page-header mb-5">Please click the button to proceed and do not refresh the page.
+                </h3>
+                <form action="{% url 'orders:payment' %}" method='POST'>
+                  {% csrf_token %}
+                  <input type="hidden" name="name" value="{{ order.email }}">
+        <input type="hidden" name="provider_order_id" value="{{ order.id }}">
+        <input type="hidden" name="amount" value="{{ cart.get_total_price }}">
+                  
+                  <div>
+                  <button type="submit" id="btnpay" class="btn" style="background-color: rgb(64, 151, 29);font-weight: 600;color: black;">Redirect to Payment</button>
+                  </div>
+                </form>
+                
+            </div>
+        </div>
+    </div>
+{% endblock %}

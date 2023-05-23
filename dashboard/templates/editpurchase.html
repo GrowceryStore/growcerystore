@@ -1,0 +1,89 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Edit Purchase{% endblock %}
+{% block content %}
+
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="editpur">
+        <h4 id="borderh">Update Purchase</h4>
+        <br/>
+        <form action="/updatepurchase/{{purchases.id}}" method="post">
+            {% csrf_token %}    
+            
+            <label class="pb-2">Item</label>
+            <select class="form-control" name="Productid" >
+                <option value="">-Select-</option>
+                {% for p in prod %} 
+                {% if p.id == purchases.Productid_id %}
+                <option value="{{ p.id }}" selected >{{ p.Product_Name }}</option>
+                {% else %}
+                <option value="{{ p.id }}" >{{ p.Product_Name }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <br/>
+
+            <label class="pb-2">Order By</label>
+            <select class="form-control" name="Employeprofileid"  >
+                <option value="">-Select-</option>
+                {% for e in employeprofiles %} 
+                {% if e.id == purchases.Employeprofileid_id %}
+                <option value="{{ e.id }}" selected >{{ e.Employe_Name }}</option>
+                {% else %}
+                <option value="{{ e.id }}" >{{ e.Employe_Name }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <br/>
+
+            <label class="pb-2">Supplier</label>
+            <select class="form-control" name="Supplierid"  >
+                <option value="">-Select-</option>
+                {% for s in suppli %} 
+                {% if s.id == purchases.Supplierid_id %}
+                <option value="{{ s.id }}" selected >{{ s.Supplier_Name }}</option>
+                {% else %}
+                <option value="{{ s.id }}" >{{ s.Supplier_Name }}</option>
+                {% endif %}
+                {% endfor %}
+            </select>
+            <br/>
+
+            <label class="pb-2">Quantity</label>
+            <input type="text" class="form-control" name="Quantity" value="{{purchases.Quantity}}" />
+            <br/>
+
+            <input type="hidden" class="form-control" name="Date" value="{{purchases.Date}}"  />
+
+            <label class="pb-2">Total</label>
+            <input type="text" class="form-control" name="Total" value="{{purchases.Total}}" />
+            <br/>
+
+            <label class="pb-2">Paid</label>
+            <input type="text" class="form-control" name="Paid" value="{{purchases.Paid}}" />
+            <br/>
+
+            <label class="ps-2">Payment Status</label>
+            <input type="text" class="form-control" name="Payment_Status" value="{{purchases.Payment_Status}}" />
+            <br/>
+
+            <label class="ps-2">Purchase Status</label>
+            <input type="text" class="form-control" name="Purchase_Status" value="{{purchases.Purchase_Status}}" />
+            <br/>
+
+            <div id="addcatbtn"class="ps-2">
+                <button type="submit" class="rounded-1" id="btn" onclick="sub()">Update</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function sub(){
+        alert("Purchase Updated Successfully");
+    }
+</script>
+
+{% endblock %}

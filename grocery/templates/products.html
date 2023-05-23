@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}Products{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-md-12 text-center pt-5">
+       <h3 id="proh2"> PRODUCTS </h3>
+       <img src="{% static 'images/under.webp' %}" />
+    </div>
+</div>
+<div class="row pt-5">
+    <div class="col-md-12" id="propadd">
+        <div class="row pt-5">
+            {% for pr in pro %}
+            <div class="col-md-3">
+                <div class="border border-2 mb-5 text-center" id="borderpro">
+                    <a href="/productdetails/{{ pr.id }}" class="text-decoration-none text-dark">
+                        <img src="/media/{{ pr.Photo }}"  height="240" width="100%"  />
+                        <h2 id="prohead">{{ pr.Product_Name }}</h2>
+                        <h4 class="fs-5" id="clrpro"> (&#8377;{{ pr.Selling_Price }}) <span id="pro"> &#8377;{{ pr.MRP }} </span> </h4>
+                        <p>{{ pr.Description|slice:"0:0" }}</p>
+                    </a>
+
+                    {% if user.is_authenticated %}
+                    <input type="hidden" value="{{ user.id }}" class="Uid" /> 
+                    <input type="hidden" value="{{ pr.id }}" class="Pid" /> 
+                    <button class="btn btnfav"><i class="fa-solid fa-heart-circle-check"></i></button>    
+                    {% else %}
+                    <a href="/signup/?next={{request.path}}"><button><i class="fa-solid fa-heart-circle-check"></i></button></a>
+                    {% endif %}
+
+                    <form action="{% url 'cart:cart_add' pr.id %}" method="post">
+                        {% csrf_token %}
+                        {{ cart_product_form }}
+                        <input type="submit" id="probtn" value="add to cart" class="btn btn-primary">
+                    </form>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div> 
+</div>
+
+{% endblock%}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}home{% endblock %}
+{% block content %}
+
+<div class="row pt-3">
+    <div class="col-md-12 pt-4 pb-5 ps-5">
+        <h2 class=" text-center" id="frufont">Eggs And Meat</h2>
+    </div>
+</div>
+
+<div class="row mb-5">
+    <div class="col-md-12 text-center">
+        <img src="{% static 'images/Megg.jpg' %}"   width="60%" height="370px" />
+    </div>
+</div>
+
+<div class="ps-5 pe-5" id="pfont">
+    <div class="row">
+        <div class="col-md-12">
+            <h5>Meat, Fish, and Eggs</h5>
+            <p>
+                Meats are typically composed of roughly 20% protein, 20% fat, and 60% water. The quantity of fat in a single quantity of meat varies substantially, not only depending on the kind of meat but also on its quality; the "energy value" changes in direct proportion to the fat level. Meat is valuable because of its high biological value protein. Pork is a good source of thiamin. Meat is also high in niacin, vitamin B12, and vitamin B6, as well as the minerals iron, zinc, phosphorus, potassium, and magnesium. The liver is the storage organ for vitamin A, riboflavin, and folic acid. Animal parts (offal) such as the kidneys, heart, tongue, and liver are regarded as delicacy in many cultures. Many vitamins are found in abundance in the liver. Fish muscle tissue has 13 to 20% protein, fat ranging from less than 1% to more than 20%, and 60 to 82 percent water, which varies inversely with fat concentration. Many fish, such as cod and haddock, concentrate fat in the liver and have exceptionally thin muscles as a result. Other fish tissues, such as salmon and herring, may contain 15% or more fat. However, unlike animal fat, fish oil is high in important long-chain fatty acids, notably eicosapentaenoic acid.
+            </p>
+
+            <h5>Meat</h5>
+            <p>
+                Meat and poultry include protein, which is necessary for growth and development, as well as other minerals such as iodine, iron, zinc, and vitamin B12. To reduce your salt and saturated fat intake, avoid processed meats.<br/>Choose lean cuts of meat and poultry and follow the serving size recommendations.<br/>Take care you prepare and store meat and poultry in a safe manner.<br/>Beef is a wonderful source of protein and other nutrients, but it is also high in cholesterol and saturated fats, which can lead to fatty deposits in the blood. Beef may be a nutritious element of your diet if consumed in moderation.<br/>According to Harvard University specialists, "an accumulating body of data reveals a strong association between heavy consumption of red and processed meats and an increased risk of heart disease, cancer, diabetes, and early mortality."<br/>Eating beef raises your total health risks. However, if you eat it in limited amounts and pick lean cuts, there are certain advantages to eating beef.
+            </p>
+
+            <h5>Eggs</h5>
+            <p>
+                One egg has 6 grams of the material, which includes all nine “essential” amino acids, which are the building blocks of protein. That is significant since those are the ones that your body cannot produce on its own. The egg white contains almost half of the protein and only a minor amount of fat and cholesterol.<br/>Your doctor will check you for these, as well as HDL and LDL. Lowering your triglycerides is beneficial for your health. Eating eggs, particularly ones loaded with specific fatty acids (such as omega-3s), appears to lower your levels.<br/>Though research differs, it appears that eating an egg every day may reduce your risk. According to recent Chinese research, persons who took one a day were about 30% less likely to die from a hemorrhagic stroke than those who did not.<br/>You know precisely what you're getting at roughly 70 calories per egg. They're also convenient to transport. Hard boil a few and store them in your cooler. With a salad or a couple of pieces of bread, you've got yourself a quick, healthy meal.
+            </p>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

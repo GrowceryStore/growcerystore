@@ -1,0 +1,91 @@
+{% extends 'base1.html' %}
+{% load static %}
+{% block title %}Add Purchase{% endblock %}
+{% block content %}
+
+<div class="pt-2 mb-4">
+    <div class="col-md-12 bg-white" id="addcat">
+        <h4 id="borderh">Add Purchase</h4>
+        <br/>
+        <form action="/insertpurchase/" method="post" >
+            {% csrf_token %}    
+            <label class="pb-2">Item</label>
+            <select class="form-control" name="Productid" required >
+                <option value="">-Select-</option>
+                {% for p in products %}
+                <option value="{{ p.id }}">{{ p.Product_Name }}</option>
+                {% endfor %}
+            </select>
+            <br/>
+
+            <label class="pb-2">Order By</label>
+            <select class="form-control" name="Employeprofileid" required >
+                <option value="">-Select-</option>
+                {% for e in employeprofiles %}
+                <option value="{{ e.id }}">{{ e.Employe_Name }}</option>
+                {% endfor %}
+            </select>
+            <br/>
+
+            <label class="pb-2">Supplier</label>
+            <select class="form-control" name="Supplierid" required >
+                <option value="">-Select-</option>
+                {% for s in suppliers %}
+                <option value="{{ s.id }}">{{ s.Categoryid }}</option>
+                {% endfor %}
+            </select>
+            <br/>
+
+            <label class="pb-2">Date</label>
+            <input type="date" class="form-control" name="Date" required  />
+            <br/>
+
+            <label class="pb-2">Quantity</label>
+            <input type="text" class="form-control" name="Quantity" required />
+            <br/>
+
+            <label class="pb-2">MRP</label>
+            <input type="text" class="form-control" name="MRP" required />
+            <br/>
+
+            <label class="pb-2">Total</label>
+            <input type="text" class="form-control" name="Total" required />
+            <br/>
+
+            <label class="pb-2">Paid</label>
+            <input type="text" class="form-control" name="Paid" required />
+            <br/>
+
+            <label class="ps-2">Payment Status</label>
+            <select class="form-control" name="Payment_Status">
+                <option value="">--Select--</option>
+                <option>Pending</option>
+                <option>Waiting</option>
+                <option>Completed</option>
+                <option>Decline</option>
+            </select>
+            <br/>
+
+            <label class="ps-2">Purchase Status</label>
+            <select class="form-control" name="Purchase_Status">
+                <option value="">--Select--</option>
+                <option>Item Recieved</option>
+                <option>Not Recieved</option>
+            </select>
+            <br/>
+
+            <div id="addcatbtn"class="ps-2">
+                <button type="submit" class="rounded-1" id="btn" onclick="sub()">Submit</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+
+<script>
+    function sub(){
+        alert("Purchase added Successfully");
+    }
+</script>
+
+{% endblock %}
